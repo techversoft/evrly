@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fafafb;
+  --foreground: #1e293b;
+  --primary-pink: #ec4899;
+  --primary-indigo: #4f46e5;
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+  --border-light: #e2e8f0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Spacing & Container alignment */
+.container-custom {
+  width: 100%;
+  max-width: 80rem; /* 1280px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Custom Table Layouts for Admin & Sellers */
+.table-custom {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table-custom th {
+  background-color: #f8fafc;
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  padding: 0.875rem 1.25rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.table-custom td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.8125rem;
+  color: #334155;
+  background-color: #ffffff;
+  transition: background-color 0.15s ease;
+}
+
+.table-custom tr:hover td {
+  background-color: #f8fafc;
+}
+
+/* Premium Card hover lift state */
+.card-hover-effect {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease;
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.08);
+}
+
+/* Hide scrollbars for sliders */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom styling for standard input elements */
+.input-field-custom {
+  width: 100%;
+  padding: 0.625rem 1rem;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  color: #1f2937;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input-field-custom:focus {
+  outline: none;
+  border-color: var(--primary-pink);
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.15);
+}
+
+/* Primary Button Styling */
+.btn-primary-custom {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border-radius: 0.75rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--primary-pink), var(--primary-indigo));
+  box-shadow: 0 4px 6px -1px rgba(236, 72, 153, 0.2);
+  transition: opacity 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+}
+
+.btn-primary-custom:hover {
+  opacity: 0.95;
+  box-shadow: 0 10px 15px -3px rgba(236, 72, 153, 0.3);
+}
+
+.btn-primary-custom:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Fluid Wide Page Layout containers override */
+.max-w-7xl {
+  max-width: 95% !important;
+}
+
+@media (min-width: 1400px) {
+  .max-w-7xl {
+    max-width: 96% !important;
+  }
+}
+
+@media (min-width: 1700px) {
+  .max-w-7xl {
+    max-width: 1720px !important;
+  }
+}
+
+/* Hide Next.js Development Overlay / Issue indicator bubble */
+nextjs-portal {
+  display: none !important;
+}
+
+
