@@ -118,7 +118,7 @@ export const getProductBySlug = async (req, res) => {
         .populate('user', 'name')
         .sort({ createdAt: -1 });
 
-      res.json({ product, reviews, shopName: sellerProfile?.shopName || 'CustomizedGiftStore' });
+      res.json({ product, reviews, shopName: sellerProfile?.shopName || 'Evrly - Your Customized GiftStore' });
     } else {
       res.status(404).json({ message: 'Product not found' });
     }

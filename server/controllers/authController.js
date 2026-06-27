@@ -81,6 +81,7 @@ export const registerUser = async (req, res) => {
         name: user.name,
         email: user.email,
         role: user.role,
+        phoneNumber: user.phoneNumber || '',
         isVerified: user.isVerified,
         token: generateToken(user._id),
       });
@@ -121,6 +122,7 @@ export const authUser = async (req, res) => {
         name: user.name,
         email: user.email,
         role: user.role,
+        phoneNumber: user.phoneNumber || '',
         isVerified: user.isVerified,
         sellerApproved,
         token: generateToken(user._id),
@@ -163,6 +165,7 @@ export const googleLogin = async (req, res) => {
       name: user.name,
       email: user.email,
       role: user.role,
+      phoneNumber: user.phoneNumber || '',
       isVerified: user.isVerified,
       token: generateToken(user._id),
     });

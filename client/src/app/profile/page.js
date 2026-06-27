@@ -89,7 +89,9 @@ export default function ProfilePage() {
   // Fetch User Addresses
   const fetchAddresses = async () => {
     try {
-      setAddressesLoading(true);
+      if (addresses.length === 0) {
+        setAddressesLoading(true);
+      }
       const { data } = await api.get('/auth/addresses');
       setAddresses(data);
     } catch (err) {
@@ -102,7 +104,9 @@ export default function ProfilePage() {
   // Fetch Wishlist Items
   const fetchWishlist = async () => {
     try {
-      setWishlistLoading(true);
+      if (wishlist.length === 0) {
+        setWishlistLoading(true);
+      }
       const { data } = await api.get('/auth/wishlist');
       setWishlist(data);
     } catch (err) {

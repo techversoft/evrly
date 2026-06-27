@@ -1,8 +1,8 @@
 import React from 'react';
 
 export const metadata = {
-  title: 'Terms & Conditions | CustomizedGiftStore Marketplace',
-  description: 'Read the terms of use for buying and selling customized gifts on the CustomizedGiftStore platform.',
+  title: 'Terms & Conditions | Evrly - Your Customized GiftStore Marketplace',
+  description: 'Read the terms of use for buying and selling customized gifts on the Evrly - Your Customized GiftStore platform.',
 };
 
 export default function TermsPage() {
@@ -19,7 +19,7 @@ export default function TermsPage() {
         <section className="space-y-2">
           <h2 className="text-base font-bold text-slate-800">1. Acceptance of Terms</h2>
           <p>
-            By accessing or placing an order on CustomizedGiftStore, you agree to comply with and be bound by these Terms and Conditions. These terms govern the relation between buyers, vendors (sellers), and CustomizedGiftStore (operated by Techversoft Innovations).
+            By accessing or placing an order on Evrly - Your Customized GiftStore, you agree to comply with and be bound by these Terms and Conditions. These terms govern the relation between buyers, vendors (sellers), and Evrly - Your Customized GiftStore (operated by Techversoft Innovations).
           </p>
         </section>
 
@@ -40,7 +40,7 @@ export default function TermsPage() {
         <section className="space-y-2">
           <h2 className="text-base font-bold text-slate-800">4. Limitation of Liability</h2>
           <p>
-            CustomizedGiftStore provides a multi-vendor platform marketplace and coordinates processing, but is not directly liable for packaging delays or courier failures by logistics partners, though we will assist in resolving disputes.
+            Evrly - Your Customized GiftStore provides a multi-vendor platform marketplace and coordinates processing, but is not directly liable for packaging delays or courier failures by logistics partners, though we will assist in resolving disputes.
           </p>
         </section>
 

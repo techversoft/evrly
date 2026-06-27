@@ -46,6 +46,20 @@ function LoginContent() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMsg('');
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+      setErrorMsg('Please enter a valid email address.');
+      return;
+    }
+
+    // Password length validation
+    if (password.length < 6) {
+      setErrorMsg('Password must be at least 6 characters long.');
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -78,7 +92,7 @@ function LoginContent() {
       {/* Header Brand */}
       <div className="text-center space-y-2">
         <div className="inline-flex w-12 h-12 rounded-2xl overflow-hidden bg-white shadow-md border border-gray-100 flex items-center justify-center mx-auto">
-          <img src="/logo.png" alt="CustomizedGiftStore Logo" className="w-full h-full object-cover" />
+          <img src="/logo.png" alt="Evrly - Your Customized GiftStore Logo" className="w-full h-full object-cover" />
         </div>
         <h2 className="text-xl sm:text-2xl font-black text-gray-800">Welcome Back</h2>
         <p className="text-xs text-gray-400">Log in to track orders or customize gifts</p>

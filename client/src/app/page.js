@@ -36,7 +36,7 @@ export default function Home() {
 
   return (
     <div className="pb-16 space-y-12 sm:space-y-16">
-      
+
       {/* 1. Circular Discovery Category Bar (Meesho/Amazon Style) */}
       <section className="bg-white border-b border-gray-100 py-4 shadow-sm -mt-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,20 +76,20 @@ export default function Home() {
       <section className="relative overflow-hidden bg-gradient-to-r from-slate-900 via-slate-800 to-indigo-950 text-white py-20 px-6 sm:px-12 lg:px-16 shadow-xl -mt-12 sm:-mt-16">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(236,72,153,0.12),transparent_45%)]" />
         <div className="absolute -bottom-24 -left-20 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl" />
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative space-y-6">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-xs font-bold text-pink-300">
             <Sparkles className="h-3.5 w-3.5" />
             100% Personalization Available
           </div>
-          
+
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
             Gift Memories With{' '}
             <span className="bg-gradient-to-r from-pink-400 via-rose-300 to-indigo-300 bg-clip-text text-transparent">
               Customized Details
             </span>
           </h1>
-          
+
           <p className="text-xs sm:text-sm text-slate-300 max-w-lg leading-relaxed font-medium">
             Create unforgettable surprises using name engravings, custom messages, and custom instructions. Handcrafted by specialized sellers with quick delivery across India.
           </p>
@@ -138,8 +138,8 @@ export default function Home() {
           ].map((feat, index) => {
             const Icon = feat.icon;
             return (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`p-4 rounded-2xl bg-gradient-to-tr ${feat.color} border border-gray-100/50 flex items-start gap-4 shadow-sm`}
               >
                 <div className="p-2.5 bg-white rounded-xl shadow-sm flex-shrink-0">
@@ -160,7 +160,7 @@ export default function Home() {
             <h2 className="text-xl sm:text-2xl font-black text-slate-800">Visual Gift Finder</h2>
             <p className="text-xs text-slate-400">Answer 2 simple questions to find the absolute perfect custom surprise</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-2">
             {/* Recipient Picker */}
             <div className="space-y-3">
@@ -310,7 +310,7 @@ export default function Home() {
         {/* Step-by-Step Personalization Guide */}
         <section className="bg-gradient-to-tr from-slate-900 via-slate-850 to-indigo-950 text-white rounded-3xl p-6 sm:p-10 shadow-xl space-y-8 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-pink-500/5 rounded-full blur-3xl" />
-          
+
           <div className="text-center max-w-xl mx-auto space-y-2">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] font-extrabold text-pink-300 uppercase tracking-widest">
               Simple Workflow
@@ -346,8 +346,8 @@ export default function Home() {
                 icon: '🚚'
               }
             ].map((item, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="p-5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl space-y-4 hover:scale-[1.02] transition-all duration-300"
               >
                 <div className="flex justify-between items-center">
@@ -373,31 +373,31 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {loading
               ? Array(6)
-                  .fill(0)
-                  .map((_, i) => (
-                    <div key={i} className="animate-pulse bg-gray-200 aspect-[4/3] rounded-2xl" />
-                  ))
+                .fill(0)
+                .map((_, i) => (
+                  <div key={i} className="animate-pulse bg-gray-200 aspect-[4/3] rounded-2xl" />
+                ))
               : categories.map((cat) => (
-                  <Link
-                    key={cat._id}
-                    href={`/products?category=${cat.slug}`}
-                    className="group relative overflow-hidden rounded-2xl bg-slate-900 aspect-square shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer"
-                  >
-                    <img
-                      src={cat.image}
-                      alt={cat.name}
-                      className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 group-hover:opacity-55 transition-all duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-3">
-                      <h3 className="text-xs font-black text-white leading-tight">
-                        {cat.name}
-                      </h3>
-                      <p className="text-[9px] text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-1 mt-0.5 font-medium">
-                        Shop Catalog
-                      </p>
-                    </div>
-                  </Link>
-                ))}
+                <Link
+                  key={cat._id}
+                  href={`/products?category=${cat.slug}`}
+                  className="group relative overflow-hidden rounded-2xl bg-slate-900 aspect-square shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer"
+                >
+                  <img
+                    src={cat.image}
+                    alt={cat.name}
+                    className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 group-hover:opacity-55 transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-3">
+                    <h3 className="text-xs font-black text-white leading-tight">
+                      {cat.name}
+                    </h3>
+                    <p className="text-[9px] text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-1 mt-0.5 font-medium">
+                      Shop Catalog
+                    </p>
+                  </div>
+                </Link>
+              ))}
           </div>
         </section>
 
@@ -407,7 +407,7 @@ export default function Home() {
             <h2 className="text-xl sm:text-2xl font-black text-gray-800">What Our Customers Say</h2>
             <p className="text-xs text-gray-400">Verified reviews and comments from our custom gifting community</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
@@ -449,7 +449,7 @@ export default function Home() {
 
         {/* FAQ & Newsletter Row */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-          
+
           {/* Interactive FAQ Accordion Section */}
           <section className="bg-slate-50/50 border border-slate-100 rounded-3xl p-6 sm:p-10 shadow-sm space-y-8">
             <div className="text-center max-w-xl mx-auto space-y-2">
@@ -476,7 +476,7 @@ export default function Home() {
                   a: 'Yes, shipping is completely free for all orders above ₹500. For orders below ₹500, a flat nominal delivery fee of ₹50 is added at checkout.'
                 },
                 {
-                  q: 'Is checkout secure on CustomizedGiftStore?',
+                  q: 'Is checkout secure on Evrly - Your Customized GiftStore?',
                   a: 'Yes! We use Razorpay to process payments. All transactions are fully encrypted, securing your UPI, cards, and netbanking credentials.'
                 }
               ].map((faq, idx) => (
@@ -487,16 +487,14 @@ export default function Home() {
                     className="w-full flex items-center justify-between text-left font-bold text-xs sm:text-sm text-slate-800 hover:text-pink-600 transition-colors px-6 py-4.5 cursor-pointer bg-white border-0 outline-none"
                   >
                     <span>{faq.q}</span>
-                    <ChevronRight 
-                      className={`h-4 w-4 text-slate-400 transform transition-transform duration-300 ${
-                        expandedFaq === idx ? 'rotate-90 text-pink-500' : ''
-                      }`} 
+                    <ChevronRight
+                      className={`h-4 w-4 text-slate-400 transform transition-transform duration-300 ${expandedFaq === idx ? 'rotate-90 text-pink-500' : ''
+                        }`}
                     />
                   </button>
-                  <div 
-                    className={`overflow-hidden transition-all duration-350 ease-in-out ${
-                      expandedFaq === idx ? 'max-h-40 border-t border-slate-100/50 opacity-100' : 'max-h-0 opacity-0'
-                    }`}
+                  <div
+                    className={`overflow-hidden transition-all duration-350 ease-in-out ${expandedFaq === idx ? 'max-h-40 border-t border-slate-100/50 opacity-100' : 'max-h-0 opacity-0'
+                      }`}
                   >
                     <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-semibold bg-slate-50/50 px-6 py-4">
                       {faq.a}
@@ -510,10 +508,10 @@ export default function Home() {
           {/* Premium Newsletter Sign-up Section */}
           <section className="bg-gradient-to-br from-pink-600 via-purple-900 to-indigo-950 rounded-3xl p-6 sm:p-10 text-white text-center shadow-lg relative overflow-hidden flex flex-col justify-center">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.1),transparent_40%)]" />
-            
+
             <div className="relative max-w-xl mx-auto space-y-6">
               <div className="space-y-2">
-                <h2 className="text-xl sm:text-3xl font-black tracking-tight">Join the CustomizedGiftStore Elite Club</h2>
+                <h2 className="text-xl sm:text-3xl font-black tracking-tight">Join the Evrly - Your Customized GiftStore Elite Club</h2>
                 <p className="text-xs sm:text-sm text-pink-100/90 max-w-md mx-auto leading-relaxed">
                   Subscribe to get early notifications on new custom frames, exclusive surprise box deals, and get <strong>10% OFF</strong> your first personalized order.
                 </p>
@@ -531,8 +529,8 @@ export default function Home() {
                   <span className="text-pink-300">✓</span> Vendor Deals & Coupons
                 </div>
               </div>
-              
-              <form 
+
+              <form
                 onSubmit={(e) => {
                   e.preventDefault();
                   alert('Thank you for subscribing! Check your email for your 10% coupon code.');
@@ -554,9 +552,7 @@ export default function Home() {
               </form>
             </div>
           </section>
-
         </div>
-
       </div>
     </div>
   );

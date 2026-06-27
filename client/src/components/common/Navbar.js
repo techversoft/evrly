@@ -70,14 +70,14 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20 gap-4">
           
-          {/* Logo (CustomizedGiftStore) */}
+          {/* Logo (Evrly - Your Customized GiftStore) */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center gap-2 group">
               <div className="w-10 h-10 rounded-xl overflow-hidden shadow-md shadow-pink-500/20 group-hover:scale-105 transition-transform duration-200 bg-white flex items-center justify-center border border-gray-100">
-                <img src="/logo.png" alt="CustomizedGiftStore Logo" className="w-full h-full object-cover" />
+                <img src="/logo.png" alt="Evrly - Your Customized GiftStore Logo" className="w-full h-full object-cover" />
               </div>
               <span className="text-2xl font-black tracking-tight text-white group-hover:text-pink-400 transition-colors">
-                CustomizedGiftStore
+                Evrly - Your Customized GiftStore
               </span>
             </Link>
           </div>

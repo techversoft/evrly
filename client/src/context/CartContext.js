@@ -19,7 +19,7 @@ export const CartProvider = ({ children }) => {
         const { data } = await api.get('/cart');
         setCartItems(data.items || []);
       } else {
-        const localCart = localStorage.getItem('customizedgiftstore_cart');
+        const localCart = localStorage.getItem('evrly_customized_giftstore_cart');
         setCartItems(localCart ? JSON.parse(localCart) : []);
       }
     } catch (error) {
@@ -38,7 +38,7 @@ export const CartProvider = ({ children }) => {
   // Sync guest cart to local storage
   const syncLocalCart = (items) => {
     setCartItems(items);
-    localStorage.setItem('customizedgiftstore_cart', JSON.stringify(items));
+    localStorage.setItem('evrly_customized_giftstore_cart', JSON.stringify(items));
   };
 
   // Add Item
@@ -127,7 +127,7 @@ export const CartProvider = ({ children }) => {
         await api.delete('/cart');
       }
       setCartItems([]);
-      localStorage.removeItem('customizedgiftstore_cart');
+      localStorage.removeItem('evrly_customized_giftstore_cart');
     } catch (error) {
       console.error('Error clearing cart:', error);
     }

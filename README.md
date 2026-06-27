@@ -1,6 +1,6 @@
-# CustomizedGiftStore | Premium Customized Gifting Multi-Vendor Marketplace
+# Evrly - Your Customized GiftStore | Premium Customized Gifting Multi-Vendor Marketplace
 
-CustomizedGiftStore is a production-ready, highly scalable multi-vendor e-commerce marketplace dedicated strictly to personalized gifts (such as engraved photo frames, magic coffee mugs, customized surprise explosion boxes, and corporate gifting items). 
+Evrly - Your Customized GiftStore is a production-ready, highly scalable multi-vendor e-commerce marketplace dedicated strictly to personalized gifts (such as engraved photo frames, magic coffee mugs, customized surprise explosion boxes, and corporate gifting items). 
 
 Developed with a modern decoupled architecture, it enables customers to purchase tailor-made gifts, approved vendors to list customizable specifications, and platform administrators to moderate listings.
 
@@ -65,7 +65,7 @@ Create a `.env` file in the `/server` directory with the following variables:
 ```env
 PORT=5000
 NODE_ENV=production
-MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/customizedgiftstore
+MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/evrly_customized_giftstore
 JWT_SECRET=your_backend_jwt_hash_secret_key
 
 # Admin Bootstrap Account (Creates on npm run clean-db)

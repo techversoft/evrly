@@ -1,8 +1,8 @@
 import React from 'react';
 
 export const metadata = {
-  title: 'About Us | CustomizedGiftStore Personalized Surprises',
-  description: 'Learn more about CustomizedGiftStore, India\'s leading marketplace for custom engravings, photo frames, mugs, and personalized surprises.',
+  title: 'About Us | Evrly - Your Customized GiftStore Personalized Surprises',
+  description: 'Learn more about Evrly - Your Customized GiftStore, India\'s leading marketplace for custom engravings, photo frames, mugs, and personalized surprises.',
 };
 
 export default function AboutPage() {
@@ -10,7 +10,7 @@ export default function AboutPage() {
     <div className="max-w-4xl mx-auto px-4 py-12 sm:py-16 space-y-8 text-gray-700">
       
       <div className="space-y-3 text-center">
-        <h1 className="text-3xl font-black text-slate-800 tracking-tight">About CustomizedGiftStore</h1>
+        <h1 className="text-3xl font-black text-slate-800 tracking-tight">About Evrly - Your Customized GiftStore</h1>
         <p className="text-sm text-slate-400 font-medium max-w-xl mx-auto">
           Connecting specialized artisans with custom gifting enthusiasts across India
         </p>
@@ -21,7 +21,7 @@ export default function AboutPage() {
         <section className="space-y-2">
           <h2 className="text-lg font-bold text-slate-800">Our Story</h2>
           <p>
-            CustomizedGiftStore was founded with a single, clear objective: to make personalized gifting seamless, premium, and accessible. In a market flooded with generic, mass-produced items, we realized that the most memorable gifts are those carrying a unique touch—whether it is an engraved name, a customized date, or a custom secret message.
+            Evrly - Your Customized GiftStore was founded with a single, clear objective: to make personalized gifting seamless, premium, and accessible. In a market flooded with generic, mass-produced items, we realized that the most memorable gifts are those carrying a unique touch—whether it is an engraved name, a customized date, or a custom secret message.
           </p>
           <p>
             We built a multi-vendor platform dedicated strictly to custom crafts. We recruit, audit, and onboarding specialized local printing hubs, laser engraving workshops, and handmade card artisans, connecting them directly with clients who want to purchase premium customized surprises.
@@ -29,7 +29,7 @@ export default function AboutPage() {
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-lg font-bold text-slate-800">How CustomizedGiftStore Works</h2>
+          <h2 className="text-lg font-bold text-slate-800">How Evrly - Your Customized GiftStore Works</h2>
           <p>
             Every single product listed on our platform is customizable. During checkout, clients fill out specialized form specifications (such as names to print, anniversary dates, or instructions). Approved sellers then process these details using state-of-the-art laser engraving or high-definition sublimation printers to craft high-quality personalized items.
           </p>
@@ -38,7 +38,7 @@ export default function AboutPage() {
         <section className="space-y-2">
           <h2 className="text-lg font-bold text-slate-800">Our Quality Guarantee</h2>
           <p>
-            We hold our vendors to high operational standards. All sellers undergo strict verification, including GSTIN validation and bank audits, before they are approved to list products. This ensures that every order placed on CustomizedGiftStore is produced using top-grade materials, carefully packaged, and delivered securely using trusted logistics partners.
+            We hold our vendors to high operational standards. All sellers undergo strict verification, including GSTIN validation and bank audits, before they are approved to list products. This ensures that every order placed on Evrly - Your Customized GiftStore is produced using top-grade materials, carefully packaged, and delivered securely using trusted logistics partners.
           </p>
         </section>
 

@@ -1,8 +1,8 @@
 import React from 'react';
 
 export const metadata = {
-  title: 'Seller Policy & Merchant Standards | CustomizedGiftStore Portal',
-  description: 'Understand seller rules, GSTIN validations, product moderation criteria, and payout commission terms on CustomizedGiftStore.',
+  title: 'Seller Policy & Merchant Standards | Evrly - Your Customized GiftStore Portal',
+  description: 'Understand seller rules, GSTIN validations, product moderation criteria, and payout commission terms on Evrly - Your Customized GiftStore.',
 };
 
 export default function SellerPolicyPage() {
@@ -19,7 +19,7 @@ export default function SellerPolicyPage() {
         <section className="space-y-2">
           <h2 className="text-base font-bold text-slate-800">1. Onboarding Approval</h2>
           <p>
-            CustomizedGiftStore operates as an invite-only and heavily moderated multi-vendor portal. To register, merchants must supply a valid shop name, GSTIN (GST registration number), support coordinates, and active bank account credentials for monthly payouts. Seller accounts must be reviewed and approved by Platform Administrators before they can list product items.
+            Evrly - Your Customized GiftStore operates as an invite-only and heavily moderated multi-vendor portal. To register, merchants must supply a valid shop name, GSTIN (GST registration number), support coordinates, and active bank account credentials for monthly payouts. Seller accounts must be reviewed and approved by Platform Administrators before they can list product items.
           </p>
         </section>
 
@@ -33,7 +33,7 @@ export default function SellerPolicyPage() {
         <section className="space-y-2">
           <h2 className="text-base font-bold text-slate-800">3. Commission splits & Fees</h2>
           <p>
-            CustomizedGiftStore charges a flat **10% platform commission fee** on the subtotal value of every item sold. The remaining 90% is logged to the seller's earnings pool.
+            Evrly - Your Customized GiftStore charges a flat **10% platform commission fee** on the subtotal value of every item sold. The remaining 90% is logged to the seller's earnings pool.
           </p>
         </section>
 

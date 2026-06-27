@@ -7,7 +7,7 @@ import { ToastProvider } from '../../context/ToastContext';
 
 export default function Providers({ children }) {
   return (
-    <SessionProvider>
+    <SessionProvider refetchOnWindowFocus={false}>
       <ToastProvider>
         <CartProvider>
           {children}

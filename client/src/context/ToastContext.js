@@ -35,23 +35,23 @@ export const ToastProvider = ({ children }) => {
           }[toast.type] || Info;
 
           const styles = {
-            success: 'bg-emerald-50 border-emerald-250 text-emerald-950 shadow-emerald-500/10 shadow-md',
-            warning: 'bg-amber-50 border-amber-250 text-amber-950 shadow-amber-500/10 shadow-md',
-            error: 'bg-rose-50 border-rose-250 text-rose-950 shadow-rose-500/10 shadow-md',
-            info: 'bg-indigo-50 border-indigo-250 text-indigo-950 shadow-indigo-500/10 shadow-md'
-          }[toast.type] || 'bg-slate-50 border-slate-250 text-slate-950';
+            success: 'bg-gradient-to-r from-pink-50/90 to-indigo-50/90 border border-pink-200/60 shadow-lg shadow-pink-500/5 text-slate-850',
+            warning: 'bg-amber-50 border border-amber-200 text-amber-950 shadow-md shadow-amber-500/5',
+            error: 'bg-rose-50 border border-rose-200 text-rose-950 shadow-md shadow-rose-500/5',
+            info: 'bg-indigo-50 border border-indigo-200 text-indigo-950 shadow-md shadow-indigo-500/5'
+          }[toast.type] || 'bg-slate-50 border-slate-200 text-slate-950';
 
           const iconColor = {
-            success: 'text-emerald-600',
-            warning: 'text-amber-600',
-            error: 'text-rose-600',
-            info: 'text-indigo-600'
-          }[toast.type] || 'text-slate-600';
+            success: 'text-pink-500',
+            warning: 'text-amber-500',
+            error: 'text-rose-500',
+            info: 'text-indigo-500'
+          }[toast.type] || 'text-slate-500';
 
           return (
             <div
               key={toast.id}
-              className={`pointer-events-auto flex items-start gap-3 p-4 border rounded-2xl shadow-xl transition-all duration-300 animate-fade-in ${styles}`}
+              className={`pointer-events-auto flex items-start gap-3 p-4 border rounded-2xl shadow-xl transition-all duration-300 animate-toast-slide-in ${styles}`}
               role="alert"
             >
               <Icon className={`h-5 w-5 flex-shrink-0 mt-0.5 ${iconColor}`} />

@@ -27,14 +27,14 @@ export async function generateMetadata({ params: paramsPromise }) {
 
   if (!data || !data.product) {
     return {
-      title: 'Product Not Found | CustomizedGiftStore',
+      title: 'Product Not Found | Evrly - Your Customized GiftStore',
       description: 'The requested personalized gift item could not be found.',
     };
   }
 
   const { product } = data;
-  const title = `Customize ${product.name} | CustomizedGiftStore Premium Gifts`;
-  const description = `${product.description?.substring(0, 155)}... Buy custom ${product.name} online at CustomizedGiftStore. Personalized details & premium quality.`;
+  const title = `Customize ${product.name} | Evrly - Your Customized GiftStore Premium Gifts`;
+  const description = `${product.description?.substring(0, 155)}... Buy custom ${product.name} online at Evrly - Your Customized GiftStore. Personalized details & premium quality.`;
   const canonicalUrl = `${appUrl}/products/${slug}`;
   const ogImage = product.images?.[0] || `${appUrl}/logo.png`;
 
@@ -48,7 +48,7 @@ export async function generateMetadata({ params: paramsPromise }) {
       title,
       description,
       url: canonicalUrl,
-      siteName: 'CustomizedGiftStore',
+      siteName: 'Evrly - Your Customized GiftStore',
       images: [
         {
           url: ogImage,
@@ -102,12 +102,12 @@ export default async function ProductDetailPage({ params: paramsPromise }) {
       availability: product.stock > 0 ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
       seller: {
         '@type': 'Organization',
-        name: 'CustomizedGiftStore',
+        name: 'Evrly - Your Customized GiftStore',
       },
     },
     brand: {
       '@type': 'Brand',
-      name: 'CustomizedGiftStore',
+      name: 'Evrly - Your Customized GiftStore',
     },
     aggregateRating: reviews?.length > 0 ? {
       '@type': 'AggregateRating',

@@ -36,6 +36,8 @@ export default function ProductDetailClient({ initialProduct, initialReviews, in
   const [inWishlist, setInWishlist] = useState(false);
   const [nameError, setNameError] = useState('');
   const [messageError, setMessageError] = useState('');
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [recentlyViewedProducts, setRecentlyViewedProducts] = useState([]);
 
   const checkWishlistStatus = async () => {
     if (session && product?._id) {
@@ -102,7 +104,35 @@ export default function ProductDetailClient({ initialProduct, initialReviews, in
     fetchProductDetails();
   }, [slug]);
 
+  useEffect(() => {
+    if (product && product._id) {
+      try {
+        const currentList = JSON.parse(localStorage.getItem('recently_viewed_gifts') || '[]');
+        
+        const updatedItem = {
+          _id: product._id,
+          name: product.name,
+          slug: product.slug,
+          price: product.price,
+          originalPrice: product.originalPrice,
+          images: product.images,
+          rating: product.rating || 5
+        };
+        
+        const filteredList = currentList.filter(item => item._id !== product._id);
+        const newList = [updatedItem, ...filteredList].slice(0, 5);
+        
+        localStorage.setItem('recently_viewed_gifts', JSON.stringify(newList));
+        setRecentlyViewedProducts(filteredList.slice(0, 4));
+      } catch (err) {
+        console.error('Error caching recently viewed product:', err);
+      }
+    }
+  }, [product]);
+
   const handleAddToCart = async () => {
+    if (addingToCart) return;
+
     if (!product) return;
 
     if (!session) {
@@ -130,9 +160,12 @@ export default function ProductDetailClient({ initialProduct, initialReviews, in
     const messageVal = customizationValues.find(v => v.fieldName === 'Custom message')?.value || '';
 
     let hasError = false;
+    let firstErrorId = '';
+
     if (isNameRequired && !nameVal.trim()) {
       setNameError('Name to be printed on gift is required.');
       hasError = true;
+      if (!firstErrorId) firstErrorId = 'customization-name-input';
     } else {
       setNameError('');
     }
@@ -140,16 +173,28 @@ export default function ProductDetailClient({ initialProduct, initialReviews, in
     if (isMessageRequired && !messageVal.trim()) {
       setMessageError('Custom message is required.');
       hasError = true;
+      if (!firstErrorId) firstErrorId = 'customization-message-input';
     } else {
       setMessageError('');
     }
 
-    if (hasError) return;
+    if (hasError) {
+      if (firstErrorId) {
+        const inputEl = document.getElementById(firstErrorId);
+        if (inputEl) {
+          inputEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setTimeout(() => {
+            inputEl.focus({ preventScroll: true });
+          }, 450);
+        }
+      }
+      return;
+    }
 
     try {
       setAddingToCart(true);
       await addItemToCart(product, quantity, customizationValues);
-      showToast('Item added to cart successfully!', 'success');
+      setShowSuccessModal(true);
     } catch (error) {
       console.error('Failed to add to cart:', error);
       showToast('Failed to add item to cart. Please try again.', 'error');
@@ -160,6 +205,7 @@ export default function ProductDetailClient({ initialProduct, initialReviews, in
 
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
+    if (reviewSubmitLoading) return;
     if (!session) {
       router.push('/login');
       return;
@@ -238,14 +284,14 @@ export default function ProductDetailClient({ initialProduct, initialReviews, in
           )}
 
           {/* Main Visual Display */}
-          <div className="flex-1 bg-white border border-gray-200/60 rounded-3xl overflow-hidden shadow-sm aspect-square relative">
+          <div className="flex-1 w-full max-w-[420px] sm:max-w-[480px] mx-auto bg-white border border-gray-200/60 rounded-3xl overflow-hidden shadow-sm aspect-square max-h-[420px] sm:max-h-[480px] relative flex items-center justify-center p-4">
             <img
               src={activeImage || 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=800'}
               alt={product.name}
-              className="w-full h-full object-cover"
+              className="max-w-full max-h-full w-auto h-auto object-contain rounded-2xl"
             />
             {discount > 0 && (
-              <span className="absolute top-4 right-4 px-3 py-1 bg-emerald-50 text-xs font-black text-white rounded-lg shadow-sm">
+              <span className="absolute top-3 right-3 px-2.5 py-1 bg-pink-500 text-[10px] font-black text-white rounded-lg shadow-md z-10">
                 {discount}% OFF
               </span>
             )}
@@ -351,7 +397,7 @@ export default function ProductDetailClient({ initialProduct, initialReviews, in
                   <button
                     onClick={handleAddToCart}
                     disabled={addingToCart}
-                    className="flex-grow h-12 bg-gradient-to-r from-pink-500 to-indigo-600 text-white rounded-xl shadow-lg shadow-pink-500/10 font-bold hover:opacity-95 hover:shadow-xl transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-55"
+                    className="flex-grow h-12 bg-gradient-to-r from-pink-500 to-indigo-600 text-white rounded-xl shadow-lg shadow-pink-500/10 font-bold hover:opacity-95 hover:shadow-xl transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-55 disabled:cursor-not-allowed"
                   >
                     {addingToCart ? (
                       <Loader2 className="h-5 w-5 animate-spin text-white" />
@@ -428,6 +474,26 @@ export default function ProductDetailClient({ initialProduct, initialReviews, in
         </section>
       )}
 
+      {/* Recently Viewed recommendations */}
+      {recentlyViewedProducts.length > 0 && (
+        <section className="border-t border-gray-100 pt-10 space-y-6">
+          <div className="border-b border-gray-50 pb-3 flex items-center justify-between">
+            <div className="space-y-1 text-left">
+              <div className="flex items-center gap-1 text-indigo-600 font-bold text-xs uppercase tracking-wider">
+                <RotateCcw className="h-4 w-4 shrink-0" />
+                Personalized History
+              </div>
+              <h3 className="text-lg sm:text-xl font-black text-slate-800">Recently Viewed Gifts</h3>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {recentlyViewedProducts.map((prod) => (
+              <ProductCard key={prod._id} product={prod} />
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* Review block splits */}
       <section className="border-t border-gray-100 pt-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
         
@@ -481,7 +547,7 @@ export default function ProductDetailClient({ initialProduct, initialReviews, in
               <button
                 type="submit"
                 disabled={reviewSubmitLoading}
-                className="w-full py-2.5 bg-slate-800 hover:bg-slate-900 text-white text-xs font-bold rounded-xl transition-all cursor-pointer flex items-center justify-center"
+                className="w-full py-2.5 bg-slate-800 hover:bg-slate-900 text-white text-xs font-bold rounded-xl transition-all cursor-pointer flex items-center justify-center disabled:opacity-55 disabled:cursor-not-allowed"
               >
                 {reviewSubmitLoading ? (
                   <Loader2 className="h-4 w-4 animate-spin text-white" />
@@ -554,7 +620,7 @@ export default function ProductDetailClient({ initialProduct, initialReviews, in
         <button
           onClick={handleAddToCart}
           disabled={addingToCart || product.stock <= 0}
-          className="px-5 py-2.5 bg-gradient-to-r from-pink-500 to-indigo-600 text-white rounded-xl text-xs font-bold hover:opacity-95 transition-opacity disabled:opacity-50 flex items-center gap-1.5"
+          className="px-5 py-2.5 bg-gradient-to-r from-pink-500 to-indigo-600 text-white rounded-xl text-xs font-bold hover:opacity-95 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1.5"
         >
           {addingToCart ? (
             <Loader2 className="h-3.5 w-3.5 animate-spin" />
@@ -564,6 +630,62 @@ export default function ProductDetailClient({ initialProduct, initialReviews, in
           Buy Now
         </button>
       </div>
+
+      {/* Success Modal Popup */}
+      {showSuccessModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/40 backdrop-blur-md animate-fade-in">
+          <div className="bg-white rounded-3xl p-6 max-w-sm w-full border border-pink-100/70 shadow-2xl text-center space-y-5 animate-scale-up">
+            {/* Success Icon */}
+            <div className="w-14 h-14 bg-gradient-to-r from-pink-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto shadow-lg shadow-pink-500/20">
+              <Check className="h-7 w-7 text-white" />
+            </div>
+
+            {/* Content text */}
+            <div className="space-y-1.5">
+              <h3 className="text-lg font-black text-slate-800">Added to Cart!</h3>
+              <p className="text-[11px] text-slate-400 font-bold leading-relaxed px-2">
+                You have successfully added <span className="text-pink-600">"{product.name}"</span> to your shopping cart.
+              </p>
+            </div>
+
+            {/* Product Mini Preview Box */}
+            <div className="flex items-center gap-3 p-3 bg-slate-50/70 rounded-2xl border border-pink-50 text-left">
+              <div className="w-12 h-12 rounded-xl overflow-hidden bg-white border border-gray-100 flex-shrink-0">
+                <img
+                  src={product.images?.[0] || 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=800'}
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-xs font-extrabold text-slate-800 truncate">{product.name}</p>
+                <p className="text-[10px] text-slate-400 font-bold mt-0.5">
+                  Qty: {quantity} • <span className="text-slate-700">{formatPrice(product.price * quantity)}</span>
+                </p>
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div className="grid grid-cols-2 gap-3 pt-1">
+              <button
+                type="button"
+                onClick={() => setShowSuccessModal(false)}
+                className="w-full py-2.5 border border-gray-200 text-slate-500 hover:text-slate-700 rounded-xl text-xs font-bold hover:bg-slate-50 transition-colors cursor-pointer"
+              >
+                Continue Shop
+              </button>
+              <button
+                type="button"
+                onClick={() => router.push('/cart')}
+                className="w-full py-2.5 bg-gradient-to-r from-pink-500 to-indigo-600 text-white rounded-xl text-xs font-bold hover:opacity-95 shadow-md shadow-pink-500/10 transition-opacity cursor-pointer flex items-center justify-center gap-1"
+              >
+                <ShoppingBag className="h-3.5 w-3.5" />
+                View Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );

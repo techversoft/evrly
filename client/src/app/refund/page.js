@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const metadata = {
-  title: 'Refund & Return Policy | CustomizedGiftStore Custom Gifting',
+  title: 'Refund & Return Policy | Evrly - Your Customized GiftStore Custom Gifting',
   description: 'Learn about our refund, returns, and cancellation policy on customized products and payment failures.',
 };
 

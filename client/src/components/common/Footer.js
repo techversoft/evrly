@@ -14,10 +14,10 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <div className="w-9 h-9 rounded-lg overflow-hidden bg-white flex items-center justify-center border border-gray-200/50">
-                <img src="/logo.png" alt="CustomizedGiftStore Logo" className="w-full h-full object-cover" />
+                <img src="/logo.png" alt="Evrly - Your Customized GiftStore Logo" className="w-full h-full object-cover" />
               </div>
               <span className="text-xl font-bold tracking-tight text-white">
-                CustomizedGiftStore
+                Evrly - Your Customized GiftStore
               </span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
@@ -112,7 +112,7 @@ export default function Footer() {
 
         {/* Footer Bottom Block */}
         <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-slate-500">
-          <p>© {new Date().getFullYear()} CustomizedGiftStore. Developed by Techversoft Innovations. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Evrly - Your Customized GiftStore. Developed by Techversoft Innovations. All rights reserved.</p>
           <p className="flex items-center gap-1">
             Made with <Heart className="h-3 w-3 text-pink-500 fill-pink-500" /> for customized memories
           </p>

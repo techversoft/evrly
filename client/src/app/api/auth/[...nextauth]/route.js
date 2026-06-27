@@ -39,12 +39,19 @@ export const authOptions = {
     }),
   ],
   callbacks: {
-    async jwt({ token, user, account }) {
+    async jwt({ token, user, account, trigger, session }) {
       if (user) {
         token.id = user._id || user.id;
         token.role = user.role;
         token.token = user.token;
         token.sellerApproved = user.sellerApproved;
+        token.phoneNumber = user.phoneNumber;
+      }
+      
+      if (trigger === 'update' && session?.user) {
+        token.name = session.user.name;
+        token.email = session.user.email;
+        token.phoneNumber = session.user.phoneNumber;
       }
       
       if (account && account.provider === 'google') {
@@ -59,6 +66,7 @@ export const authOptions = {
           token.role = data.role;
           token.token = data.token;
           token.sellerApproved = data.sellerApproved;
+          token.phoneNumber = data.phoneNumber;
         } catch (error) {
           // Sync error handling
         }
@@ -73,6 +81,7 @@ export const authOptions = {
         session.user.role = token.role;
         session.user.token = token.token;
         session.user.sellerApproved = token.sellerApproved;
+        session.user.phoneNumber = token.phoneNumber;
       }
       return session;
     },

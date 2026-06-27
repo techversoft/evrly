@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const metadata = {
-  title: 'Shipping & Delivery Policy | CustomizedGiftStore Customized Gifts',
+  title: 'Shipping & Delivery Policy | Evrly - Your Customized GiftStore Customized Gifts',
   description: 'Understand shipping fees, transit timelines, and delivery coordinates across India for personalized items.',
 };
 

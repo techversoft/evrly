@@ -79,6 +79,12 @@ export const createOrder = async (req, res) => {
         return res.status(201).json({
           order: createdOrder,
           razorpayOrder, // Frontend uses this to trigger checkout modal
+          razorpayKey: process.env.RAZORPAY_KEY_ID,
+          customer: {
+            name: req.user.name || '',
+            email: req.user.email || '',
+            phoneNumber: req.user.phoneNumber || '',
+          },
         });
       } catch (payError) {
         console.error('Razorpay Order Creation Failed, order kept as pending:', payError);

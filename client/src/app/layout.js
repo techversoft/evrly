@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "CustomizedGiftStore | Premium Customized Gifts & Personalized Surprises",
+  title: "Evrly - Your Customized GiftStore | Premium Customized Gifts & Personalized Surprises",
   description: "India\'s leading multi-vendor marketplace for personalized birthday mugs, anniversary photo frames, corporate gift journals, and customized surprise boxes.",
   icons: {
     icon: "/logo.png",

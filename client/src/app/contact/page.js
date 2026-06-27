@@ -46,7 +46,7 @@ export default function ContactPage() {
             <div className="space-y-2">
               <h3 className="text-lg font-bold">Business Information</h3>
               <p className="text-xs text-slate-400 leading-relaxed font-semibold">
-                CustomizedGiftStore is operated as a custom gifting division of Techversoft Innovations.
+                Evrly - Your Customized GiftStore is operated as a custom gifting division of Techversoft Innovations.
               </p>
             </div>
 

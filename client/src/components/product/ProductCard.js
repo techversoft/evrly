@@ -7,7 +7,7 @@ import { formatPrice } from '../../utils/format';
 
 export default function ProductCard({ product }) {
   const { name, slug, price, compareAtPrice, images, rating, numReviews, customizationFields } = product;
-  
+
   // Calculate discount percentage
   const discount = compareAtPrice && compareAtPrice > price
     ? Math.round(((compareAtPrice - price) / compareAtPrice) * 100)
@@ -17,7 +17,7 @@ export default function ProductCard({ product }) {
 
   return (
     <div className="group bg-white border border-gray-200/60 rounded-2xl overflow-hidden shadow-sm card-hover-effect flex flex-col h-full relative">
-      
+
       {/* Customization Badge */}
       {isCustomizable && (
         <span className="absolute top-2.5 left-2.5 z-10 px-2.5 py-0.5 bg-gradient-to-r from-pink-500 to-indigo-600 text-[9px] font-extrabold text-white rounded-full flex items-center gap-1 shadow-md shadow-pink-500/10">
@@ -45,7 +45,7 @@ export default function ProductCard({ product }) {
 
       {/* Card Info */}
       <div className="p-3.5 flex flex-col flex-1 justify-between gap-2.5">
-        
+
         <div className="space-y-1.5">
           {/* Rating and Reviews */}
           <div className="flex items-center gap-1">

@@ -43,6 +43,37 @@ function RegisterContent() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMsg('');
+
+    // Validations
+    if (!isCustomerLoggedIn) {
+      if (!name.trim()) {
+        setErrorMsg('Full Name is required.');
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email.trim())) {
+        setErrorMsg('Please enter a valid email address.');
+        return;
+      }
+
+      if (password.length < 6) {
+        setErrorMsg('Password must be at least 6 characters long.');
+        return;
+      }
+    }
+
+    if (role === 'seller') {
+      if (!shopName.trim()) {
+        setErrorMsg('Shop name is required for registration.');
+        return;
+      }
+      if (shopName.trim().length < 3) {
+        setErrorMsg('Shop name must be at least 3 characters long.');
+        return;
+      }
+    }
+
     setLoading(true);
 
     try {
@@ -95,7 +126,7 @@ function RegisterContent() {
       {/* Brand Header */}
       <div className="text-center space-y-2">
         <div className="inline-flex w-12 h-12 rounded-2xl overflow-hidden bg-white shadow-md border border-gray-100 flex items-center justify-center mx-auto">
-          <img src="/logo.png" alt="CustomizedGiftStore Logo" className="w-full h-full object-cover" />
+          <img src="/logo.png" alt="Evrly - Your Customized GiftStore Logo" className="w-full h-full object-cover" />
         </div>
         <h2 className="text-xl sm:text-2xl font-black text-gray-800">
           {isCustomerLoggedIn ? 'Become a Seller Partner' : 'Create Account'}

@@ -55,8 +55,9 @@ export default function CustomizationForm({ fields, onChange, nameError, message
             Name to be printed on gift {isNameRequired && <span className="text-pink-500">*</span>}
           </label>
           <input
+            id="customization-name-input"
             type="text"
-            placeholder="Enter name (e.g., Rahul Sharma)"
+            placeholder="Enter name to be printed on the gift (e.g., Rahul Sharma)"
             value={nameText}
             onChange={(e) => setNameText(e.target.value)}
             className={`w-full px-4 py-2.5 bg-white border rounded-xl text-xs focus:ring-2 focus:outline-none transition-all font-medium text-slate-800 ${
@@ -76,6 +77,7 @@ export default function CustomizationForm({ fields, onChange, nameError, message
             Custom message {isMessageRequired && <span className="text-pink-500">*</span>}
           </label>
           <textarea
+            id="customization-message-input"
             placeholder="Enter custom greetings, anniversary wishes, or quotes..."
             value={messageText}
             rows={3}

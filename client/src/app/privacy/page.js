@@ -1,8 +1,8 @@
 import React from 'react';
 
 export const metadata = {
-  title: 'Privacy Policy | CustomizedGiftStore Custom Gifting',
-  description: 'Understand how CustomizedGiftStore collects, secures, and uses personal data for customized orders and payments.',
+  title: 'Privacy Policy | Evrly - Your Customized GiftStore Custom Gifting',
+  description: 'Understand how Evrly - Your Customized GiftStore collects, secures, and uses personal data for customized orders and payments.',
 };
 
 export default function PrivacyPolicyPage() {
@@ -19,14 +19,14 @@ export default function PrivacyPolicyPage() {
         <section className="space-y-2">
           <h2 className="text-base font-bold text-slate-800">1. Information Collection</h2>
           <p>
-            When you purchase customizable gifts on CustomizedGiftStore, we collect details necessary to process your order. This includes your name, email address, shipping address, phoneNumber, and personalized details (such as names, messages, or instructions to print on products).
+            When you purchase customizable gifts on Evrly - Your Customized GiftStore, we collect details necessary to process your order. This includes your name, email address, shipping address, phoneNumber, and personalized details (such as names, messages, or instructions to print on products).
           </p>
         </section>
 
         <section className="space-y-2">
           <h2 className="text-base font-bold text-slate-800">2. Processing Payments</h2>
           <p>
-            Payments are processed securely using Razorpay payment gateways. CustomizedGiftStore does not store card numbers, expiry dates, or bank credentials on our servers. Razorpay handles transactional details under industry standard encryption frameworks.
+            Payments are processed securely using Razorpay payment gateways. Evrly - Your Customized GiftStore does not store card numbers, expiry dates, or bank credentials on our servers. Razorpay handles transactional details under industry standard encryption frameworks.
           </p>
         </section>
 
